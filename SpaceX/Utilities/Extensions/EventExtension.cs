@@ -4,25 +4,25 @@ namespace SpaceX.Utilities.Extensions
 {
     public static class EventExtension
     {
-        public static ISpaceX Spin(this ISpaceX model, string currentDirectory, string newDirectory)
+        public static ISpaceX Spin(this ISpaceX model, string currentDirection, string newDirectory)
         {
-            var nextDirectory = string.Empty;
+            var nextDirection = string.Empty;
             switch (newDirectory)
             {
                 case "L":
-                    if (currentDirectory == "N") nextDirectory = "W";
-                    if (currentDirectory == "W") nextDirectory = "S";
-                    if (currentDirectory == "S") nextDirectory = "E";
-                    if (currentDirectory == "E") nextDirectory = "N";
+                    if (currentDirection == "N") nextDirection = "W";
+                    if (currentDirection == "W") nextDirection = "S";
+                    if (currentDirection == "S") nextDirection = "E";
+                    if (currentDirection == "E") nextDirection = "N";
                     break;
                 case "R":
-                    if (currentDirectory == "N") nextDirectory = "E";
-                    if (currentDirectory == "W") nextDirectory = "N";
-                    if (currentDirectory == "S") nextDirectory = "W";
-                    if (currentDirectory == "E") nextDirectory = "S";
+                    if (currentDirection == "N") nextDirection = "E";
+                    if (currentDirection == "W") nextDirection = "N";
+                    if (currentDirection == "S") nextDirection = "W";
+                    if (currentDirection == "E") nextDirection = "S";
                     break;
             }
-            model.Direction = nextDirectory;
+            model.Direction = nextDirection;
             return model;
         }
 
