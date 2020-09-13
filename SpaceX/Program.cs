@@ -26,9 +26,9 @@ namespace SpaceX
             rovers.Add(rover1);
             await Task.WhenAll(rover1);
 
-            var rover2 = Task.Run(() =>
+            var rover2 = await Task.Run(async () =>
             {
-                var (spaceZ, commandList) = spaceService.PrepareSpaceZAsync().Result;
+                var (spaceZ, commandList) = await spaceService.PrepareSpaceZAsync();
                 return spaceService.ScanPlateauAsync(spaceZ, commandList);
             });
             rovers.Add(rover2);
